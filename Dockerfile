@@ -1,5 +1,7 @@
 FROM balabit/syslog-ng
 ADD ./*.conf /etc/syslog-ng/
+RUN mkdir -p /opt/syslog-ng/lib/syslog-ng/java-modules/
+ADD modules/* /opt/syslog-ng/lib/syslog-ng/java-modules/
 ADD run.sh /etc/syslog/run.sh
 RUN chmod +x /etc/syslog/run.sh
 WORKDIR /etc/syslog/
